@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppVenta.Pages.CategoriasPage"
+             xmlns:util="clr-namespace:AppVenta.Utilidades"
+             xmlns:model="clr-namespace:AppVenta.DTOs"
+             Title="Categorias"
+             BackgroundColor="{StaticResource bgFondo}">
+
+
+    <Grid Margin="5" >
+        <Border BackgroundColor="{StaticResource bgFormulario}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+
+            <Grid Margin="10" RowSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                
+                <StackLayout Grid.Row="0" Orientation="Horizontal" HeightRequest="40" Spacing="8">
+                    <Grid ColumnDefinitions="1*" RowDefinitions="1*" HorizontalOptions="FillAndExpand">
+                        <Entry HorizontalOptions="FillAndExpand" Placeholder="Buscar" Text="{Binding BuscarCategoria}" />
+                        <ImageButton Source="close.svg" HeightRequest="32" WidthRequest="28" HorizontalOptions="End" 
+                                     BackgroundColor="{StaticResource bgLightGray}" Padding="3" CornerRadius="4"
+                                     IsVisible="{Binding BtnLimpiarEsVisible}" Command="{Binding LimpiarCommand}"/>
+                    </Grid>
+
+                    <Button FontFamily="FaSolid" Text="{Static util:IconFont.MagnifyingGlass}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
+                     BackgroundColor="{StaticResource Gray200}"
+                     TextColor="Black"
+                     Command="{Binding BuscarCommand}"></Button>
+
+                    <Button FontFamily="FaSolid" Text="{Static util:IconFont.Plus}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
+                     BackgroundColor="{StaticResource Gray200}"
+                     TextColor="Black"
+                     Command="{Binding AgregarCommand}"></Button>
+
+                </StackLayout>
+
+                <BoxView Grid.Row="1" HeightRequest="2" Color="LightGray"/>
+
+                <StackLayout Grid.Row="2" Orientation="Horizontal">
+                    <Label Text="Lista de categorias" FontSize="Subtitle" HorizontalOptions="StartAndExpand"/>
+                    <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="25" 
+                       VerticalOptions="Start"
+                       />
+                </StackLayout>
+
+                
+                <ScrollView Grid.Row="3" IsVisible="{Binding DataEsVisible}">
+                    
+                    <CollectionView ItemsSource="{Binding ListaCategorias}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:CategoriaDTO">
+                                <Border Padding="10,5" HorizontalOptions="FillAndExpand">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="5"/>
+                                    </Border.StrokeShape>
+
+                                    <StackLayout Orientation="Horizontal" HeightRequest="32" Spacing="2">
+                                        <Label VerticalOptions="Center" Text="{Binding Nombre}" HorizontalOptions="StartAndExpand"/>
+                                        <ImageButton Source="edit_pencil.svg" HorizontalOptions="End" HeightRequest="30" WidthRequest="28" 
+                                                     BackgroundColor="{StaticResource bgLightBlue}" 
+                                                     Padding="3" CornerRadius="4"
+                                                     Command="{Binding BindingContext.EditarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                     CommandParameter="{Binding}"
+                                                     />
+
+                                        <ImageButton Source="trash.svg" HorizontalOptions="End" HeightRequest="30" WidthRequest="28" 
+                                                     BackgroundColor="{StaticResource bgLightRed}" Padding="3" CornerRadius="4"
+                                                     Command="{Binding BindingContext.EliminarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                     CommandParameter="{Binding}"
+                                                     />
+                                    </StackLayout>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+
+
+
+                </ScrollView>
+                
+
+            </Grid>
+        </Border>
+    </Grid>
+
+</ContentPage>

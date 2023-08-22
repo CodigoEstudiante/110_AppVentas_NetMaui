@@ -1,0 +1,95 @@
+is_global = true
+build_property.TargetFramework = net7.0-ios
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AppVenta
+build_property.ProjectDir = E:\WorkSpaceAD\YOUTUBE\110_APP VENTA NET MAUI\AppVenta\AppVenta\
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/App.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.App.xaml
+build_metadata.AdditionalFiles.TargetPath = App.xaml
+build_metadata.AdditionalFiles.RelativePath = App.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/AppShell.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.AppShell.xaml
+build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
+build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/MainPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.MainPage.xaml
+build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
+build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/BarcodePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.BarcodePage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\BarcodePage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\BarcodePage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/BuscarProductoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.BuscarProductoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\BuscarProductoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\BuscarProductoPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/CategoriasPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.CategoriasPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\CategoriasPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\CategoriasPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/EscanearProductoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.EscanearProductoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\EscanearProductoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\EscanearProductoPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/HistoriaVentaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.HistoriaVentaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\HistoriaVentaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\HistoriaVentaPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/InventarioPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.InventarioPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\InventarioPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\InventarioPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/LoginPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.LoginPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\LoginPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\LoginPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/ProductoPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.ProductoPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\ProductoPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\ProductoPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Pages/VentaPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Pages.VentaPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Pages\VentaPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Pages\VentaPage.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Resources/Styles/Colors.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Resources.Styles.Colors.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
+
+[E:/WorkSpaceAD/YOUTUBE/110_APP VENTA NET MAUI/AppVenta/AppVenta/Resources/Styles/Styles.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = AppVenta.Resources.Styles.Styles.xaml
+build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
+build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml

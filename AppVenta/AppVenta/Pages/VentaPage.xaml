@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppVenta.Pages.VentaPage"
+             xmlns:util="clr-namespace:AppVenta.Utilidades"
+             xmlns:vm="clr-namespace:AppVenta.ViewModels"
+             xmlns:model="clr-namespace:AppVenta.DTOs"
+             Title="Venta">
+
+    <Grid Margin="5" >
+        <Border BackgroundColor="{StaticResource bgFormulario}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+
+            <Grid Margin="10" RowSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+
+                <StackLayout Grid.Row="0" Orientation="Horizontal" Spacing="8">
+                    
+                    <Frame Padding="15,8" HorizontalOptions="FillAndExpand">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label FontFamily="FaSolid" Text="{Static util:IconFont.MagnifyingGlass}" VerticalOptions="Center" TextColor="{StaticResource bgDark}"/>
+                            <Label Text="Buscar" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapBuscarCommand}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <!--<Frame Padding="15,8" HorizontalOptions="FillAndExpand">
+                        <HorizontalStackLayout Spacing="15">
+                            <Label FontFamily="FaSolid" Text="{Static util:IconFont.Barcode}" VerticalOptions="Center" TextColor="{StaticResource bgDark}"/>
+                            <Label Text="Escanear" VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding TapEscanearCommand}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>-->
+
+                </StackLayout>
+
+                <BoxView Grid.Row="1" HeightRequest="2" Color="LightGray"/>
+
+                <ScrollView Grid.Row="2" >
+                    <CollectionView SelectionMode="None"  ItemsSource="{Binding DetalleVenta}"
+                         >
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:DetalleVentaDTO">
+
+                                <Border Padding="10" HorizontalOptions="FillAndExpand">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="10,10,10,10"/>
+                                    </Border.StrokeShape>
+
+                                    <Grid ColumnSpacing="10" HorizontalOptions="FillAndExpand">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="5*" />
+                                            <ColumnDefinition Width="2*" />
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0"  Orientation="Vertical" Spacing="10">
+                                            <Label Text="{Binding Producto.Nombre}" VerticalOptions="StartAndExpand"/>
+
+                                            <Border HorizontalOptions="Start" Stroke="#512BD4" StrokeThickness="3" VerticalOptions="EndAndExpand">
+                                                <Grid WidthRequest="110" HeightRequest="37">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Button Grid.Column="0" Text="-" CornerRadius="0" FontAttributes="Bold" HeightRequest="37" WidthRequest="37" 
+                                                     Command="{Binding BindingContext.DisminuirEventCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                     CommandParameter="{Binding}"
+                                                     ></Button>
+                                                    <Label Grid.Column="1"  FontAttributes="Bold" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Text="{Binding Cantidad}"  />
+                                                    <Button Grid.Column="2" Text="+" CornerRadius="0" FontAttributes="Bold" HeightRequest="37" WidthRequest="37" 
+                                                     Command="{Binding BindingContext.AumentarEventCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                     CommandParameter="{Binding}"
+                                                     ></Button>
+                                                </Grid>
+                                            </Border>
+                                        </StackLayout>
+
+                                        <StackLayout Grid.Column="2"  Orientation="Vertical">
+                                            <Label  Text="{Binding Total, StringFormat='{0:C}'}" FontSize="15" TextColor="#1d94ab" HorizontalOptions="EndAndExpand" VerticalOptions="StartAndExpand" />
+                                            <Label Text="Eliminar" HorizontalOptions="EndAndExpand" TextColor="IndianRed">
+                                                <Label.GestureRecognizers>
+                                                    <TapGestureRecognizer 
+                                         Command="{Binding BindingContext.EliminarEventCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                                           CommandParameter="{Binding}"
+                                                           />
+                                                </Label.GestureRecognizers>
+                                            </Label>
+                                        </StackLayout>
+
+
+                                    </Grid>
+
+                                </Border>
+
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+                </ScrollView>
+
+                <StackLayout Grid.Row="3" BackgroundColor="{StaticResource bgLightGray}" Padding="10">
+                    <Grid ColumnSpacing="12" RowSpacing="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Text="Total:"  VerticalOptions="End" />
+                        <Entry Grid.Row="1" Grid.Column="0" Text="{Binding Total, StringFormat='{0:C}'}" VerticalOptions="Center" />
+
+                        <Label Grid.Row="0" Grid.Column="1" Text="Pago con:" VerticalOptions="End"/>
+                        <Entry Grid.Row="1" Grid.Column="1" Keyboard="Numeric" IsEnabled="True" HorizontalOptions="FillAndExpand" Text="{Binding PagoCon}" />
+
+                        <Label Grid.Row="0" Grid.Column="2" Text="Cambio:" VerticalOptions="End"/>
+                        <Entry Grid.Row="1" Grid.Column="2" Keyboard="Numeric" IsEnabled="False" HorizontalOptions="FillAndExpand" Text="{Binding Cambio}" TextColor="{Binding CambioColor}"/>
+                        
+                        <Button Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Finalizar" HeightRequest="35" WidthRequest="100" 
+                                Padding="0" Margin="0,5,0,0"
+                                HorizontalOptions="End" BackgroundColor="{StaticResource bgSuccess}"
+                                Command="{Binding FinalizarVentaCommand}"
+                                />
+                    </Grid>
+                   
+                </StackLayout>
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>

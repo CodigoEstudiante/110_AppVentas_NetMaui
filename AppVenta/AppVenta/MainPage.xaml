@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:AppVenta.Utilidades"
+             x:Class="AppVenta.MainPage">
+
+    <ScrollView>
+
+        <Grid ColumnSpacing="4" RowSpacing="4" Margin="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+
+            <Frame Grid.Column="0" Grid.Row="0"  CornerRadius="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" FontFamily="FaSolid"  Text="{Static util:IconFont.EuroSign}" FontSize="40"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Total Ingresos"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding TotalIngresos}" TextColor="#1d94ab"/>
+                </Grid>
+            </Frame>
+
+            <Frame Grid.Column="1" Grid.Row="0"  CornerRadius="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" FontFamily="FaSolid"  Text="{Static util:IconFont.Tags}" FontSize="40"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Total Ventas"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding TotalVentas}" TextColor="#1d94ab"/>
+                </Grid>
+
+            </Frame>
+            <Frame Grid.Column="0" Grid.Row="1"  CornerRadius="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" FontFamily="FaSolid"  Text="{Static util:IconFont.BoxesStacked}" FontSize="40"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Total Productos"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding TotalProductos}" TextColor="#1d94ab"/>
+                </Grid>
+
+            </Frame>
+            <Frame Grid.Column="1" Grid.Row="1"  CornerRadius="1">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" FontFamily="FaSolid"  Text="{Static util:IconFont.LayerGroup}" FontSize="40"/>
+                    <Label Grid.Column="1" Grid.Row="0" Text="Total Categorias"/>
+                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding TotalCategorias}" TextColor="#1d94ab"/>
+                </Grid>
+
+            </Frame>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

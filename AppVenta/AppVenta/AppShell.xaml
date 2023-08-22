@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AppVenta.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AppVenta"
+    xmlns:pages="clr-namespace:AppVenta.Pages"
+    Shell.FlyoutBehavior="Flyout">
+
+    <Shell.FlyoutHeader>
+        <Image Source="dotnet_bot.svg" WidthRequest="120" Margin="10"></Image>
+    </Shell.FlyoutHeader>
+
+    <ShellContent
+        Icon="home.svg"
+        Title="Inicio"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+     Icon="ticket.svg"
+    Title="Categorias"
+    ContentTemplate="{DataTemplate pages:CategoriasPage}"
+    Route="CategoriasPage" />
+
+    <ShellContent
+        Icon="clipboard.svg"
+       Title="Inventario"
+       ContentTemplate="{DataTemplate pages:InventarioPage}"
+       Route="InventarioPage" />
+
+    <ShellContent
+    Icon="shopping_cart.svg"
+   Title="Venta"
+   ContentTemplate="{DataTemplate pages:VentaPage}"
+   Route="VentaPage" />
+
+    <ShellContent
+     Icon="time.svg"
+    Title="Historial Venta"
+    ContentTemplate="{DataTemplate pages:HistoriaVentaPage}"
+    Route="HistoriaVentaPage" />
+
+    <MenuItem IconImageSource="stand_by.svg" Text="Cerrar Sesión" Clicked="CerrarSesion_Clicked">
+    </MenuItem>
+
+</Shell>

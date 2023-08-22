@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:util="clr-namespace:AppVenta.Utilidades"
+             x:Class="AppVenta.Pages.InventarioPage"
+             xmlns:model="clr-namespace:AppVenta.DTOs"
+             Title="Inventario"
+             BackgroundColor="{StaticResource bgFondo}">
+
+
+    <Grid Margin="5" >
+        <Border BackgroundColor="{StaticResource bgFormulario}">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+
+            <Grid Margin="10" RowSpacing="8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Picker Grid.Row="0" Title="Categoria" ItemsSource="{Binding ListaCategoria}" SelectedItem="{Binding CategoriaSeleccionada}">
+                        <Picker.ItemDisplayBinding>
+                            <Binding Path="Nombre" />
+                        </Picker.ItemDisplayBinding>
+                    </Picker>
+                    <ActivityIndicator Grid.Row="0" IsRunning="{Binding LoadingCategoriaEsVisible}" IsVisible="{Binding LoadingCategoriaEsVisible}" Color="Blue" HeightRequest="20" 
+                    VerticalOptions="Center" HorizontalOptions="End"
+                    />
+                </Grid>
+
+                <StackLayout Grid.Row="1" Orientation="Horizontal" HeightRequest="40" Spacing="8">
+
+                    <Grid ColumnDefinitions="1*" RowDefinitions="1*" HorizontalOptions="FillAndExpand">
+                        <Entry HorizontalOptions="FillAndExpand" Placeholder="Buscar" Text="{Binding BuscarProducto}" />
+                        <ImageButton Source="close.svg" HeightRequest="32" WidthRequest="28" HorizontalOptions="End" 
+                                 BackgroundColor="{StaticResource bgLightGray}" Padding="3" CornerRadius="4"
+                                 IsVisible="{Binding BtnLimpiarEsVisible}" Command="{Binding LimpiarCommand}"/>
+                    </Grid>
+                    <Button FontFamily="FaSolid" Text="{Static util:IconFont.MagnifyingGlass}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
+                     BackgroundColor="{StaticResource Gray200}"
+                     TextColor="Black"
+                     Command="{Binding BuscarCommand}"></Button>
+
+
+                    <Button FontFamily="FaSolid" Text="{Static util:IconFont.Plus}" FontSize="24" Padding="4" HeightRequest="35" WidthRequest="35"
+                     BackgroundColor="{StaticResource Gray200}"
+                     TextColor="Black"
+                     Command="{Binding IrProductoCommand}"></Button>
+                </StackLayout>
+
+                <BoxView Grid.Row="2" HeightRequest="2" Color="LightGray"/>
+
+                <StackLayout Grid.Row="3" Orientation="Horizontal">
+                    <Label Text="Lista de productos" FontSize="Subtitle" HorizontalOptions="StartAndExpand"/>
+                    <ActivityIndicator IsRunning="{Binding LoadingEsVisible}" IsVisible="{Binding LoadingEsVisible}" Color="Blue" HeightRequest="25" 
+                        VerticalOptions="Start"
+                        />
+                </StackLayout>
+
+
+
+                <ScrollView Grid.Row="4" IsVisible="{Binding DataEsVisible}" >
+
+                    <CollectionView ItemsSource="{Binding ListaProductos}">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout ItemSpacing="5" Orientation="Vertical"/>
+                        </CollectionView.ItemsLayout>
+
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate x:DataType="model:ProductoDTO">
+                                <Border Padding="10,5" HorizontalOptions="FillAndExpand">
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="5"/>
+                                    </Border.StrokeShape>
+
+                                    <Grid Padding="5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="8*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0" Orientation="Vertical">
+                                            <!--<Label Text="{Binding Codigo}"/>-->
+                                            <Label Text="{Binding Nombre}" FontAttributes="Bold"/>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Label Text="Categoria: " />
+                                                <Label Text="{Binding Categoria.Nombre}" />
+                                            </StackLayout>
+
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="1*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto"/>
+                                                    <RowDefinition Height="Auto"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Column="0" Grid.Row="0" Text="Cantidad:" />
+                                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding Cantidad}" FontAttributes="Bold" />
+                                                <Label Grid.Column="1" Grid.Row="0" Text="Precio:" />
+                                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Precio, StringFormat='{0:C}'}" FontAttributes="Bold" />
+                                            </Grid>
+                                        </StackLayout>
+                                        <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End" VerticalOptions="CenterAndExpand">
+                                            <ImageButton Source="edit_pencil.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
+                                              BackgroundColor="{StaticResource bgLightBlue}"  
+                                              Command="{Binding BindingContext.EditarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                              CommandParameter="{Binding}"
+                                              />
+
+                                            <ImageButton Source="trash.svg"  HeightRequest="45" WidthRequest="35" Padding="5" CornerRadius="4"
+                                              BackgroundColor="{StaticResource bgLightRed}"
+                                              Command="{Binding BindingContext.EliminarCommand, Source={x:RelativeSource AncestorType={x:Type ContentPage}}}"
+                                              CommandParameter="{Binding}"
+                                              />
+                                        </StackLayout>
+                                    </Grid>
+
+
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+
+                    </CollectionView>
+
+                </ScrollView>
+
+
+            </Grid>
+        </Border>
+    </Grid>
+</ContentPage>
